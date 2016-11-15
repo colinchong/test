@@ -1,0 +1,8 @@
+What new skills have you learned?
+I have learned about the figure element and the new way to add strike throughs with <s>.
+
+What has been easy?
+The limited set of tags and elements introduced has made the learning sufficiently simple.
+
+How have you used the problem solving strategies from the first project to overcome challenges so far?
+I have been diligent in searching around different tools to get answers when I get stuck.
