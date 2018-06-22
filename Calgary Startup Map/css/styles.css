@@ -1,0 +1,31 @@
+#map {
+  height: 100%;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.input-field {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+}
+
+
+.list {
+  overflow: hidden;
+  position: absolute;
+  bottom: 80px;
+  left: 10px;
+}
+
+.select-dropdown {
+    color: white;
+}
+
+.select-wrapper {
+    background: rgba(0, 0, 0, 0.5);
+}

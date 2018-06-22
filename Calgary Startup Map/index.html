@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+		<title>Calgary Tech Startups</title>
+    <!-- Required CSS -->
+		<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	</head>
+	<body>
+		<!-- Google Maps -->
+		<div id="map"></div>
+		<!-- Company Type Selector Filter-->
+		<div id="filter" class="input-field col s12">
+			<!-- Binds Company Types and Selected Value-->
+			<select class="teal-text text-lighten-5" data-bind="options: companyTypes, value: companySelect"></select>
+		</div>
+		<!-- Bottom Sheet Modal Structure -->
+		<a class="list waves-effect waves-light btn modal-trigger" href="#modal1">List View</a>
+		<div id="modal1" class="modal bottom-sheet">
+			<div class="collection">
+				<!-- Knockout.js controlled list -->
+				<ul data-bind="foreach:companyLocations">
+					<li class="collection-item" data-bind="text: title, click: $parent.openWindow, visible: filtered"></li>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-close waves-effect waves-green btn-flat">CLOSE</a>
+				</div>
+			</div>
+			<!-- Required Libraries -->
+			<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+			<script src="js/app.js"></script>
+			<script src="js/materialize.js"></script>
+			<script src="js/init.js"></script>
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1gfLK1WNuLLuyCiUsjhIIY-cKCd4Oz60&libraries=places&callback=initMap" onerror="mapErrorHandling()"></script>
+		</body>
+	</html>

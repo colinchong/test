@@ -1,0 +1,84 @@
+<html>
+ <head>
+ <!-- styles put here, but you can include a CSS file and reference it instead! -->
+   <style type="text/css">
+     html, body { height: 100%; margin: 0; padding: 0; }
+     #map { height: 100%; }
+   </style>
+ </head>
+ <body>
+   <!-- TODO 1: Create a place to put the map in the HTML-->
+   <div id="map"></div>
+   <script>
+     // TODO: Create a map variable
+     var map;
+
+     // Blank array for listings
+     var markers = [];
+     // TODO: Complete the following function to initialize the map
+     function initMap() {
+       map = new google.maps.Map(document.getElementById('map'), {
+           center: {lat: 51.039737, lng: -114.059245},
+           zoom: 13
+       });
+
+       var locations = [
+           {title: 'Calgary Tower', location: {lat: 51.04424, lng: -114.062542}},
+           {title: 'Peace Bridge', location: {lat: 51.053943, lng: -114.078952}},
+           {title: 'AppDevices', location: {lat: 51.039856, lng: -114.058889}},
+           {title: 'Cityhall', location: {lat: 51.046056, lng: -114.057341}},
+           {title: 'The Bow', location: {lat: 51.047778, lng: -114.062222}},
+           {title: 'CORE Shopping', location: {lat: 51.045956, lng: -114.069129}}
+       ];
+
+       var largeInfoWindow = new google.maps.InfoWindow();
+       var bounds = new google.maps.LatLngBounds();
+
+       for (var i = 0; i < locations.length; i++) {
+           var position = locations[i].location;
+           var title = locations[i].title;
+           var marker = new google.maps.Marker({
+             map: map,
+             position: position,
+             title: title,
+             animation: google.maps.Animation.DROP,
+             id: i
+           });
+           markers.push(marker);
+           bounds.extend(marker.position);
+           marker.addListener('click', function() {
+               populateInfoWindow(this, largeInfoWindow);
+           });
+       }
+       map.fitBounds(bounds);
+     }
+       function populateInfoWindow(marker, infoWindow) {
+           if (infoWindow.marker != marker) {
+               infoWindow.marker = marker;
+               infoWindow.setContent('<div>' + marker.position + '</div>');
+               infoWindow.open(map, marker);
+               infoWindow.addListener('closeclick', function(){
+                 infoWindow.setMarker(null);
+               });
+           }
+       }
+/*     var calgaryTower = {lat:51.04424, lng: -114.062542};
+     var marker = new google.maps.Marker ({
+         position: calgaryTower,
+         map: map,
+         title: 'Calgary Tower'
+     });
+     var infoWindow= new google.maps.InfoWindow ({
+         content: 'Do you ever feel like an InfoWindow, floating through the wind,' + ' ready to start again?'
+     });
+     marker.addListener('click', function(){
+       infoWindow.open(map, marker);
+     });
+   }
+   */
+   </script>
+   <!--TODO: Load the JS API ASYNCHRONOUSLY below.-->
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKbSznX-O267sW8fHdD3BwZGKivXbTqAs&v=3&callback=initMap">
+   </script>
+ </body>
+</html>

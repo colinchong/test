@@ -1,0 +1,39 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Cat Clicker Alpha</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            var clickCounter1 = 0;
+            function catClick() {
+                clickCounter1++;
+                document.getElementById('num').innerHTML = "You've clicked " + clickCounter1 + " times.";
+            }
+
+            var clickCounter2 = 0;
+            function catClick2() {
+                clickCounter2++;
+                document.getElementById('num2').innerHTML = "You've clicked " + clickCounter2 + " times.";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="wrapper" style="width:100%">
+            <div style="width:50%; float:left">
+                <p id="cat1"> Cat 1</p>
+                <img src="https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426" onclick="catClick();" style="width:100%">
+                <br>
+                <p id="num">How many cats will you click?<p>
+            </div>
+            <div style="width:50%; float:left">
+                <p id="cat2"> Cat 2</p>
+                <img src="https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496" onclick="catClick2()" style="width:100%">
+                <br>
+                <p id="num2">How many cats will you click?<p>
+            </div>
+        </div>
+    </body>
+</html>
